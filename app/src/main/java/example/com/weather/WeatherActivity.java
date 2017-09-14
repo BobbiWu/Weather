@@ -134,7 +134,10 @@ public class WeatherActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Glide.with(WeatherActivity.this).load(picurl).into(bingPicImg);
+                       Glide.with(WeatherActivity.this).load(picurl)
+                                .skipMemoryCache(true)
+                                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                                .into(bingPicImg);
                     }
                 });
             }
